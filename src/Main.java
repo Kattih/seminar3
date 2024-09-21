@@ -3,6 +3,24 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        TeacherGroup teacherGroup = new TeacherGroup();
+        TeacherService teacherService = new TeacherService(teacherGroup);
+        TeacherController teacherController = new TeacherController(teacherService);
+
+        teacherController.createTeacher("Ольга", "Николаевна", "Ковалева","Физика");
+        teacherController.createTeacher("Олег", "Евгеньевич", "Быстров","Химия");
+        teacherController.createTeacher("Иван", "Алексеевич", "Аксенов","География");
+        TeacherView teacherView = new TeacherView();
+        teacherView.sendOnConsole(teacherGroup.getTeacherList());
+        System.out.println("----------------------------------");
+        teacherController.editTeacher("Ольга", "Николаевна", "Ковалева","Астрономия");
+        teacherView.sendOnConsole(teacherGroup.getTeacherList());
+    }
+
+
+
+
+    /* //--------------------------------------------------------------------------
         List<Student> students1 = new ArrayList<>();
         students1.add (new Student(1L, "Пётр", "Петрович", "Петров"));
         students1.add (new Student(2L, "Иван", "Иванович", "Иванов"));
@@ -40,6 +58,5 @@ public class Main {
         StreamService streamService = new StreamService();
         List<Stream> sortedStreams = streamService.getSortedStream(streams);
         System.out.println(sortedStreams);
-
-    }
+        */
 }

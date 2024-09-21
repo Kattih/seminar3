@@ -10,8 +10,8 @@ public class Controller {
         this.streamService = streamService;
     }
 
-    public void removeStudentByFIO(String firstName, String lastName, String middleName){
-        studentGroupService.removeStudentByFIO(firstName, lastName, middleName);
+    public void removeStudentByFIO(String firstName,  String middleName, String lastName){
+        studentGroupService.removeStudentByFIO(firstName, middleName, lastName);
     }
 
     public List<Student> getSortedStudentList(){

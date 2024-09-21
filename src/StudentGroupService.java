@@ -8,7 +8,7 @@ public class StudentGroupService {
         this.studentGroup = studentGroup;
     }
 
-    public void removeStudentByFIO(String firstName, String lastName, String middleName){
+    public void removeStudentByFIO(String firstName,  String middleName, String lastName){
         Iterator <Student> iterator = studentGroup.getStudentList().iterator();
         while (iterator.hasNext()){
             Student student = iterator.next();
@@ -23,9 +23,10 @@ public class StudentGroupService {
         Collections.sort(studentList);
         return studentList;
     }
+
     public List<Student> getSortedStudentByFIO(){
         List<Student> studentList = new ArrayList<>(studentGroup.getStudentList());
-        studentList.sort(new StudentComparator());
+        studentList.sort(new UserComparator<Student>());
         return studentList;
     }
 }
